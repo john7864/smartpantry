@@ -3,7 +3,9 @@
 **▶ App en ligne : [smartpantry.be](https://smartpantry.be)** (connexion Google)
 Par [John Dossin](https://dossin.rvlts.com) · portfolio complet : [dossin.rvlts.com](https://dossin.rvlts.com)
 
-<img src="docs/connexion.jpg" alt="Smart Pantry — écran de connexion" width="300">
+| Mon stock | Ajouter un produit | Mes courses |
+|---|---|---|
+| <img src="docs/stock.jpg" alt="Smart Pantry — mon stock, filtres et alertes de péremption" width="260"> | <img src="docs/ajouter.jpg" alt="Smart Pantry — ajout manuel, code-barres, photo IA ou ticket de caisse" width="260"> | <img src="docs/courses.jpg" alt="Smart Pantry — liste de courses" width="260"> |
 
 Suivre son garde-manger, recevoir des **menus de la semaine générés par IA** à partir de ce qu'on a déjà, construire sa liste de courses et être **prévenu avant les dates de péremption**. Web mobile-first + app Android native, entièrement en français.
 
@@ -12,9 +14,11 @@ Suivre son garde-manger, recevoir des **menus de la semaine générés par IA** 
 ## Fonctionnalités
 
 - **Inventaire** du garde-manger, avec **scan de code-barres** (fiche produit via OpenFoodFacts).
-- **Analyse par photo et par la voix** : ajouter des produits ou un ticket de caisse sans tout saisir.
+- **Photo du stock (reconnaissance IA)** et **ticket de caisse** : ajouter des produits sans tout saisir.
 - **Menus hebdomadaires générés par IA** à partir du stock réel.
-- **Liste de courses** et **notifications de péremption** (scan automatique de l'inventaire toutes les 24 h).
+- **Liste de courses** et **notifications de péremption**.
+- **Mon bilan** : achats renseignés, valeur des produits jetés, produits consommés — par période.
+- **Synchronisé avec le compte** : on retrouve son stock d'un appareil à l'autre.
 - **Freemium** : 3 générations IA pour les comptes gratuits, illimité en premium.
 
 ## Décisions d'ingénierie
@@ -31,10 +35,6 @@ Suivre son garde-manger, recevoir des **menus de la semaine générés par IA** 
 | Web | React 19 · TypeScript strict · Vite · Tailwind · Framer Motion |
 | API | Express · proxy IA · express-rate-limit |
 | Données | Firebase Auth (Google) · Firestore · OpenFoodFacts |
-| IA | Gemini (flash pour image/voix/ticket, pro pour les menus) |
+| IA | Gemini (flash pour photos et tickets, pro pour les menus) |
 | Mobile | Android Kotlin / Jetpack Compose |
 | Exploitation | VPS administré par moi · nginx · TLS |
-
-## Ce que je referais autrement
-
-L'inventaire est aujourd'hui stocké **sur l'appareil** (stockage local du navigateur) : simple et rapide, mais pas synchronisé entre appareils. La prochaine étape serait de le rattacher au compte (Firestore) pour retrouver son garde-manger partout.
